@@ -1,7 +1,6 @@
 ---
 title: How to spin up a cheap Oracle Database in the cloud
 author: Steve Haines
-type: post
 date: 2019-03-13T22:40:13+00:00
 weight: 1
 url: /2019/03/13/how-to-spin-up-a-cheap-oracle-database-in-the-cloud/
@@ -104,8 +103,8 @@ After struggling to connect initially, I found that you need to enter the SID fo
 
 That&#8217;s actually it&#8230;this whole process took around 30 mins or less, pretty impressive. I actually found this much easier than I thought it would be. [Amazon RDS][5] really is an incredible product and would recommend to anyone who looking to spin up an quick database test environment. I can&#8217;t vouch for the performance as I haven&#8217;t done any performance testing on this instance, but as far as price is concerned it&#8217;s a winner! I hope this blog helped you to understand how to spin up a cheap oracle database in the cloud without lightening your wallet significantly by using Oracle&#8217;s own services.
 
- [1]: https://t.co/YW3ZMOpccs
- [2]: https://cloud.oracle.com/en_US/cost-estimator
- [3]: https://aws.amazon.com/rds/pricing/
- [4]: https://www.oracle.com/technetwork/developer-tools/sql-developer/downloads/index.html
- [5]: https://aws.amazon.com/rds/
+[1]: https://t.co/YW3ZMOpccs
+[2]: https://cloud.oracle.com/en_US/cost-estimator
+[3]: https://aws.amazon.com/rds/pricing/
+[4]: https://www.oracle.com/technetwork/developer-tools/sql-developer/downloads/index.html
+[5]: https://aws.amazon.com/rds/

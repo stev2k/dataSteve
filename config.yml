@@ -1,0 +1,97 @@
+baseURL: 'http://datasteve.net/'
+languageCode: en-us
+theme: PaperMod
+title: dataSteve
+paginate: 5
+languages:
+  en:
+    languageName: English
+    weight: 1
+    menu:
+      main:
+        - name: Archive
+          url: archives
+          weight: 5
+        - name: Search
+          url: search/
+          weight: 10
+        - name: Tags
+          url: tags/
+          weight: 10
+        - name: Categories
+          url: categories/
+          weight: 10
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON
+params:
+  env: production
+  description: 'Theme PaperMod - https://github.com/adityatelange/hugo-PaperMod'
+  author: Theme PaperMod
+  defaultTheme: auto
+  ShowShareButtons: true
+  ShowReadingTime: true
+  displayFullLangName: true
+  ShowPostNavLinks: true
+  ShowBreadCrumbs: true
+  ShowCodeCopyButtons: true
+  ShowToc: true
+  images:
+    - papermod-cover.png
+  profileMode:
+    enabled: false
+    title: dataSteve
+    imageUrl: '#'
+    imageTitle: my image
+    buttons:
+      - name: Archives
+        url: archives
+      - name: Tags
+        url: tags
+  homeInfoParams:
+    Title: Welcome
+    Content: >
+      dataSteve is my personal blog where I try to post about interesting tech
+      things as often as possible
+  socialIcons:
+    - name: github
+      url: 'https://github.com/stev2k'
+    - name: RsS
+      url: index.xml
+  editPost:
+    URL: 'https://github.com/adityatelange/hugo-PaperMod/tree/exampleSite/content'
+    Text: Suggest Changes
+    appendFilePath: true
+taxonomies:
+  category: categories
+  tag: tags
+  series: series
+  
+deployment:
+  order:
+    - .jpg$
+    - .gif$
+  targets:
+    - name: deployment
+      URL: 'gs://www.datasteve.net'
+      cloudFrontDistributionID: xx
+  matchers:
+    - pattern: ^.+\.(js|css|svg|ttf)$
+      cacheControl: 'max-age=31536000, no-transform, public'
+      gzip: true
+    - pattern: ^.+\.(png|jpg)$
+      cacheControl: 'max-age=31536000, no-transform, public'
+      gzip: false
+    - pattern: ^sitemap\.xml$
+      contentType: application/xml
+      gzip: true
+    - pattern: ^.+\.(html|xml|json)$
+      gzip: true
+relativeURLs: true
+

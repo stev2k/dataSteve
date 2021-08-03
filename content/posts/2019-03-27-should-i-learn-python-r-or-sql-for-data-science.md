@@ -1,10 +1,7 @@
 ---
 title: Should I learn Python, R or SQL for data science?
 author: Steve Haines
-type: post
 date: 2019-03-27T11:00:24+00:00
-weight: 2
-url: /2019/03/27/should-i-learn-python-r-or-sql-for-data-science/
 featured_image: https://storage.googleapis.com/wordpress-sqlsteve/2019/03/a061e0cf-image.png
 categories:
   - Discussion
@@ -15,8 +12,8 @@ tags:
   - Python
   - R
   - SQL
-
 ---
+
 The question &#8216;Should I learn Python, R or SQL for data science?&#8217; is a common one amongst new starters in the field of data science. I have often seen blogs explaining for instance how: _&#8220;Python is better as it will allow you to do other things as well as data science&#8221;_ or  _&#8220;R is better at doing statistical analysis&#8221;_ and so on.
 
 ### Mind the knowledge gap?
@@ -29,10 +26,9 @@ Furthermore, I worry that people might hear that learning Python for example is 
 
 These common tasks fall under the umbrella of an area of data science called &#8216;[data wrangling&#8217;][1]. It has often been argued that data scientists spend up to 80% of their time on these tasks. This is exactly the opposite of what most people expect data scientists to be doing. (e.g. wearing lab coats, using scientific calculators etc.)<figure class="wp-block-pullquote is-style-solid-color">
 
->  
-> Data scientists, according to interviews and expert estimates, spend from 50 percent to 80 percent of their time mired in this more mundane labor of collecting and preparing unruly digital data, before it can be explored for useful nuggets.
-> 
-> <cite><br />Steve Lohr, New York Times <br />Aug. 17, 2014<br /></cite></figure> 
+>  Data scientists, according to interviews and expert estimates, spend from 50 percent to 80 percent of their time mired in this more mundane labor of collecting and preparing unruly digital data, before it can be explored for useful nuggets.
+>
+>  <cite><br />Steve Lohr, New York Times <br />Aug. 17, 2014<br /></cite></figure> 
 
 It&#8217;s my belief that all of these languages are equally good at &#8216;data wrangling for beginners&#8217; and that the answer to the question which language should I learn for data science is &#8216;any or ideally all of them&#8217;. I would argue that if you are just starting off on your data science journey, any of these languages would be a reliable toolkit for tackling the challenges you need to overcome on the way.
 
@@ -51,10 +47,10 @@ I&#8217;m going to try to avoid comparing &#8216;features and benefits&#8217; of
 
 The tasks we will use to test my theory are as follows:
 
-  1. Data Load
-  2. Looking at top 10 and bottom 10 values to see the type of values or the range of a column
-  3. Summarising and aggregating data
-  4. Visualising data
+    1. Data Load
+    2. Looking at top 10 and bottom 10 values to see the type of values or the range of a column
+    3. Summarising and aggregating data
+    4. Visualising data
 
 The data I am using as part of this experiment is meteorological outdoor temperature readings taken from the roof of the Create Centre in Bristol on an hourly basis. The source for this data is [here][7].
 
@@ -69,6 +65,7 @@ BULK INSERT temps FROM 'C:\Users\Steve\Downloads\meteorological-data-create.csv'
 WITH (FIRSTROW = 2, FORMAT='CSV');
 </pre>
 
+
 Python has many libraries available to manage data, here we are using the Pandas library to automatically read the CSV with default settings into a new dataframe called temps.
 
 <pre class="brush: python; title: ; notranslate" title="">import pandas as pd
@@ -76,10 +73,12 @@ temps = pd.read_csv("meteorological-data-create.csv")
 temps
 </pre>
 
+
 In R we are using a built-in library to read the CSV into a new dataframe using some simple settings.
 
 <pre class="brush: r; title: ; notranslate" title="">temps &lt;- read.csv(file="meteorological-data-create.csv" header=TRUE, sep=",") 
 temps </pre>
+
 
 ### 2. Profiling and bottom 10 rows
 
@@ -90,6 +89,7 @@ A key difference between SQL and the others is that SQL allows us to re-use that
 <pre class="brush: sql; title: ; notranslate" title="">SELECT TOP 10 * FROM temps ORDER BY [Date Time] ASC 
 SELECT TOP 10 * FROM temps ORDER BY [Date Time] DESC 
 </pre>
+
 ![](https://storage.googleapis.com/wordpress-sqlsteve/2019/03/c856f7bb-image.png)
 
 
@@ -98,6 +98,7 @@ Python has some useful functions called &#8216;nlargest&#8217; and &#8216;nsmall
 <pre class="brush: python; title: ; notranslate" title="">temps.nlargest(10,'Temperature')
 temps.nsmallest(10,'Temperature')
 </pre>
+
 ![](https://storage.googleapis.com/wordpress-sqlsteve/2019/03/94bba37f-image.png)
 
 
@@ -106,6 +107,7 @@ R uses a similar process, where we sort the data frame and only fetch the 10 row
 <pre class="brush: r; title: ; notranslate" title="">head(sort(df1$Temperature,decreasing=TRUE), n = 10)
 head(sort(df1$Temperature,decreasing=FALSE), n = 10)
 </pre>
+
 ![](https://storage.googleapis.com/wordpress-sqlsteve/2019/03/6e2a304d-image.png)
 
 
@@ -126,6 +128,7 @@ FROM temps
 GROUP BY DATEFROMPARTS(YEAR([Date Time]),MONTH([Date Time]),'01')
 ORDER BY DATEFROMPARTS(YEAR([Date Time]),MONTH([Date Time]),'01')
 </pre>
+
 ![](https://storage.googleapis.com/wordpress-sqlsteve/2019/03/682bf98b-image.png)
 
 In Python we follow virtually the same procedure, although in Python we have got this far without declaring that the &#8216;Date Time&#8217; field is the DateTime datatype where in SQL we have to do this before we start. We then add a new column called &#8216;Month&#8217; to the dataframe which is the first day of each month to aggregate the monthly values. Finally we use &#8216;groupby&#8217; to apply the &#8216;min&#8217; and the &#8216;max&#8217; to this dataframe.
@@ -135,6 +138,7 @@ temps['Month'] = temps["Date Time"].apply( lambda temps : pd.datetime(year=temps
 temps.set_index(temps["Month"],inplace=True)
 temps.groupby('Month').agg({'Temperature':['min','max']})
 </pre>
+
 ![](https://storage.googleapis.com/wordpress-sqlsteve/2019/03/54918d24-image.png)
 
 
@@ -145,6 +149,7 @@ SummarisedTemps &lt;- data.frame(aggregate(Temperature ~ df1$month, data=df1, FU
 SummarisedTemps &lt;- SummarisedTemps[,c(1,2,4)] 
 colnames(SummarisedTemps) &lt;- c("month", "min", "max") 
 </pre>
+
 ![](https://storage.googleapis.com/wordpress-sqlsteve/2019/03/dd368628-image.png)
 
 
@@ -168,6 +173,7 @@ With Python we do need some code and the help of the MatPlotLib library. With th
 plt.rcParams['figure.figsize'] = [40, 20]
 temps.groupby('Month').agg({'Temperature':['min','max']}).plot().show()
 </pre><figure class="wp-block-image is-resized">
+
 [<img src="https://storage.googleapis.com/wordpress-sqlsteve/2019/03/c355ccc9-temps-1024x513.png" alt="Plot a line chart with two series in Python." class="wp-image-126" width="1024" height="513" srcset="https://storage.googleapis.com/wordpress-sqlsteve/2019/03/c355ccc9-temps-1024x513.png 1024w, https://storage.googleapis.com/wordpress-sqlsteve/2019/03/c355ccc9-temps-300x150.png 300w, https://storage.googleapis.com/wordpress-sqlsteve/2019/03/c355ccc9-temps-768x385.png 768w, https://storage.googleapis.com/wordpress-sqlsteve/2019/03/c355ccc9-temps-1568x785.png 1568w" sizes="(max-width: 1024px) 100vw, 1024px" />][12]</figure> 
 
 In R we have to take slightly more control of the plotting process, we set the size of the plot to a larger size like we did in Python, we then plot the min line and assign the labels for the plot (xlab,ylab for each axis and main for the title). To add an additional line to the plot we use lines() for each additional line. The type property informs plot() that we would like a line plot.
@@ -176,6 +182,7 @@ In R we have to take slightly more control of the plotting process, we set the s
 plot(SummarisedTemps$month,SummarisedTemps$min, type = "l", col = "red", xlab = "Month", ylab = "Temperature",main = "Temperature chart", ylim=c(-7,35) )
 lines(SummarisedTemps$month,SummarisedTemps$max, type = "l", col = "blue")
 </pre><figure class="wp-block-image is-resized">
+
 [<img src="https://storage.googleapis.com/wordpress-sqlsteve/2019/03/3f0556d2-tempsr-1024x576.png" alt="Plot a line chart with two series in Python." class="wp-image-129" width="1024" height="576" srcset="https://storage.googleapis.com/wordpress-sqlsteve/2019/03/3f0556d2-tempsr-1024x576.png 1024w, https://storage.googleapis.com/wordpress-sqlsteve/2019/03/3f0556d2-tempsr-300x169.png 300w, https://storage.googleapis.com/wordpress-sqlsteve/2019/03/3f0556d2-tempsr-768x432.png 768w, https://storage.googleapis.com/wordpress-sqlsteve/2019/03/3f0556d2-tempsr.png 1536w" sizes="(max-width: 1024px) 100vw, 1024px" />][13]</figure> 
 
 ### To SUM() up

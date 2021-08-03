@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Database on dataSteve</title>
+    <link>http://datasteve.net/tags/database/</link>
+    <description>Recent content in Database on dataSteve</description>
+    <image>
+      <url>http://datasteve.net/papermod-cover.png</url>
+      <link>http://datasteve.net/papermod-cover.png</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 13 Mar 2019 22:40:13 +0000</lastBuildDate><atom:link href="http://datasteve.net/tags/database/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to spin up a cheap Oracle Database in the cloud</title>
+      <link>http://datasteve.net/2019/03/13/how-to-spin-up-a-cheap-oracle-database-in-the-cloud/</link>
+      <pubDate>Wed, 13 Mar 2019 22:40:13 +0000</pubDate>
+      
+      <guid>http://datasteve.net/2019/03/13/how-to-spin-up-a-cheap-oracle-database-in-the-cloud/</guid>
+      <description>I saw this article from linked in a tweet yesterday and realised I know very little about Oracle’s cloud offering. It seems like this venerable giant of the data industry is not leading the way in the cloud domain. As a curious type, I thought it would be interesting to investigate how to spin up a cheap Oracle database in the cloud using Oracle’s own little known cloud offering and others.</description>
+    </item>
+    
+  </channel>
+</rss>
