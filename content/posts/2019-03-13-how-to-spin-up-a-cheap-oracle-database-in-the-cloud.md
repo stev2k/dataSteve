@@ -3,10 +3,7 @@ title: How to spin up a cheap Oracle Database in the cloud
 author: Steve Haines
 date: 2019-03-13T22:40:13+00:00
 weight: 1
-url: /2019/03/13/how-to-spin-up-a-cheap-oracle-database-in-the-cloud/
 featured_image: https://storage.googleapis.com/wordpress-sqlsteve/2019/03/oracle-1194372_1920-1568x1049.jpg
-amazonS3_cache:
-  - 'a:2:{s:33:"//platform.twitter.com/widgets.js";a:1:{s:9:"timestamp";i:1552516495;}s:79:"//www.oracle.com/technetwork/developer-tools/sql-developer/downloads/index.html";a:1:{s:9:"timestamp";i:1552516495;}}'
 categories:
   - HowTo
 tags:

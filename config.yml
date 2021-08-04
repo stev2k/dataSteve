@@ -32,8 +32,8 @@ outputs:
     - JSON
 params:
   env: production
-  description: 'Theme PaperMod - https://github.com/adityatelange/hugo-PaperMod'
-  author: Theme PaperMod
+  description: 'My personal tech blog'
+  author: Steve Haines
   defaultTheme: auto
   ShowShareButtons: true
   ShowReadingTime: true
@@ -57,15 +57,18 @@ params:
   homeInfoParams:
     Title: Welcome
     Content: >
-      dataSteve is my personal blog where I try to post about interesting tech
-      things as often as possible
+      My name is Steve, I have been facinated by computers since I was a child and created my first website using PHP and MySQL when I was about 11.  dataSteve is my latest personal blog where I share things that I am learning on my journey.
   socialIcons:
     - name: github
       url: 'https://github.com/stev2k'
+    - name: linkedin
+      url: 'https://www.linkedin.com/in/stephen-haines-84893536/'
+    - name: twitter
+      url: 'https://twitter.com/steve_haines1'
     - name: RsS
       url: index.xml
   editPost:
-    URL: 'https://github.com/adityatelange/hugo-PaperMod/tree/exampleSite/content'
+    URL: 'https://github.com/stev2k/dataSteve/tree/master/content/'
     Text: Suggest Changes
     appendFilePath: true
 taxonomies:

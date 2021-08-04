@@ -13,10 +13,10 @@
     <lastBuildDate>Wed, 27 Mar 2019 11:00:24 +0000</lastBuildDate><atom:link href="http://datasteve.net/categories/discussion/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Should I learn Python, R or SQL for data science?</title>
-      <link>http://datasteve.net/posts/should-i-learn-python-r-or-sql-for-data-science/</link>
+      <link>http://datasteve.net/posts/2019-03-27-should-i-learn-python-r-or-sql-for-data-science/</link>
       <pubDate>Wed, 27 Mar 2019 11:00:24 +0000</pubDate>
       
-      <guid>http://datasteve.net/posts/should-i-learn-python-r-or-sql-for-data-science/</guid>
+      <guid>http://datasteve.net/posts/2019-03-27-should-i-learn-python-r-or-sql-for-data-science/</guid>
       <description>The question ‘Should I learn Python, R or SQL for data science?’ is a common one amongst new starters in the field of data science. I have often seen blogs explaining for instance how: “Python is better as it will allow you to do other things as well as data science” or “R is better at doing statistical analysis” and so on.
 Mind the knowledge gap? While it’s perfectly valid to hold an opinion on these things as an experienced data developer, I have often thought that for beginners, statements like these can be unhelpful.</description>
     </item>
