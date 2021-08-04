@@ -83,7 +83,6 @@ deployment:
   targets:
     - name: deployment
       URL: 'gs://www.datasteve.net'
-      cloudFrontDistributionID: xx
   matchers:
     - pattern: ^.+\.(js|css|svg|ttf)$
       cacheControl: 'max-age=31536000, no-transform, public'
